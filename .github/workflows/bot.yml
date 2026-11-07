@@ -1,21 +1,21 @@
 name: Run Telegram Bot
 on:
   schedule:
-    - cron: '0 * * * *' # بيشتغل كل ساعة
-  workflow_dispatch: # عشان تقدر تشغله بإيدك
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 permissions:
-  contents: write # أهم سطر عشان البوت يقدر يحفظ وقت آخر وظيفة
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6 # النسخة الأحدث
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
-        uses: actions/setup-node@v6 # النسخة الأحدث
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
           
