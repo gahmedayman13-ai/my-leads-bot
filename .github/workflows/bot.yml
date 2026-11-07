@@ -1,0 +1,23 @@
+name: Run Telegram Bot
+on:
+  schedule:
+    - cron: '0 * * * *' # بيشتغل كل ساعة تلقائي
+  workflow_dispatch: # عشان تقدر تشغله بإيدك
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Run Bot
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GROUP_ID: ${{ secrets.GROUP_ID }}
+        run: node bot.js
