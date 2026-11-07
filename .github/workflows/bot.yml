@@ -1,8 +1,11 @@
 name: Run Telegram Bot
 on:
   schedule:
-    - cron: '0 * * * *' # بيشتغل كل ساعة تلقائي
+    - cron: '0 * * * *' # بيشتغل كل ساعة
   workflow_dispatch: # عشان تقدر تشغله بإيدك
+
+permissions:
+  contents: write # أهم سطر عشان البوت يقدر يحفظ ملف عداد الوظايف
 
 jobs:
   build:
